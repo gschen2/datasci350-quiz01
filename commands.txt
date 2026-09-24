@@ -1,32 +1,57 @@
-1. New-Item commands.txt
+1. 
+New-Item commands.txt
 git switch -c station-upgrade
 git branch
+
+2. 
 mkdir results
 mkdir results
+
+3.
 New-Item results/summary.md
 Add-Content results/summary.md "Analysis of the first field season."
+
+4.
 git add results
 git commit -m "Add results directory"
 git add results
 git commit -m "Add results directory"
+
+5. 
 git mv data/sensor-readings.csv data/station-data.csv
 git status
+
+6.
 mkdir scripts/archive; Copy-Item scripts/*.py scripts/archive/
 Get-ChildItem scripts/archive
+
+7.
 Remove-Item docs/notes.md
 git status
+
+8.
 git add .
 git status
 git restore --staged commands.txt
 git status
 git commit -m "Update station files"
+
+9.
 New-Item .gitignore
 Add-Content .gitignore "temp/"
 Add-Content .gitignore "log?.txt"
+
+10.
 Get-Content .gitignore
+
+11.
 git add .gitignore; git commit -m "Add gitignore"
+
+12.
 touch log{1..4}.txt
 ls log*.txt
+
+13.
 git status
 On branch station-upgrade
 Untracked files:
@@ -35,13 +60,49 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 The log files do not appear because .gitignore ignores files matching log?.txt.
+
+14.
 wc -l data/station-data.csv
 echo 41 >> results/summary.md
+
+15.
 git diff
+$ git diff
+diff --git a/results/summary.md b/results/summary.md
+index 609870e..5d5458e 100644
+--- a/results/summary.md
++++ b/results/summary.md
+@@ -1,2 +1,2 @@
+ Analysis of the first field season.
+-Analysis of the first field season.
++41
+diff --git a/scripts/03-plot.py b/scripts/03-plot.py
+index 70ea841..9026833 100644
+--- a/scripts/03-plot.py
++++ b/scripts/03-plot.py
+@@ -1,6 +1,8 @@
+ # Plot the daily temperature readings
+ # Prints a simple text chart, one bar per reading.
+ 
++# Reviewed for the field season report
++
+ from pathlib import Path
+ 
+ DATA_FILE = Path("data") / "sensor-readings.csv"
 Lines beginning with + show lines that were added to the files.
+
+16.
+git add .
+git commit -m "Update analyss"
+
+17.
 git commit --amend -m "Update analysis"
+
+18.
 git switch main
 git merge station-upgrade
+
+19.
 git log --oneline
 e2d5685 (HEAD -> main, station-upgrade) Update analysis
 3b482db Add gitignore
@@ -49,3 +110,8 @@ e2d5685 (HEAD -> main, station-upgrade) Update analysis
 a9e0118 Add results directory
 a22b29e (origin/main, origin/HEAD) docs(readme): note committing commands.txt before task 18 and force push for bonus 2
 b645f85 feat: quiz 01 starter files
+
+20. 
+git add commands.txt
+git commit -m "Add command log"
+git push
