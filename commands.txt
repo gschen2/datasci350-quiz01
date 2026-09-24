@@ -1,0 +1,3 @@
+New-Item commands.txt
+git switch -c station-upgrade
+git branch
