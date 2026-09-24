@@ -1,3 +1,51 @@
-New-Item commands.txt
+1. New-Item commands.txt
 git switch -c station-upgrade
 git branch
+mkdir results
+mkdir results
+New-Item results/summary.md
+Add-Content results/summary.md "Analysis of the first field season."
+git add results
+git commit -m "Add results directory"
+git add results
+git commit -m "Add results directory"
+git mv data/sensor-readings.csv data/station-data.csv
+git status
+mkdir scripts/archive; Copy-Item scripts/*.py scripts/archive/
+Get-ChildItem scripts/archive
+Remove-Item docs/notes.md
+git status
+git add .
+git status
+git restore --staged commands.txt
+git status
+git commit -m "Update station files"
+New-Item .gitignore
+Add-Content .gitignore "temp/"
+Add-Content .gitignore "log?.txt"
+Get-Content .gitignore
+git add .gitignore; git commit -m "Add gitignore"
+touch log{1..4}.txt
+ls log*.txt
+git status
+On branch station-upgrade
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        commands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+The log files do not appear because .gitignore ignores files matching log?.txt.
+wc -l data/station-data.csv
+echo 41 >> results/summary.md
+git diff
+Lines beginning with + show lines that were added to the files.
+git commit --amend -m "Update analysis"
+git switch main
+git merge station-upgrade
+git log --oneline
+e2d5685 (HEAD -> main, station-upgrade) Update analysis
+3b482db Add gitignore
+0077b27 Update station files
+a9e0118 Add results directory
+a22b29e (origin/main, origin/HEAD) docs(readme): note committing commands.txt before task 18 and force push for bonus 2
+b645f85 feat: quiz 01 starter files
